@@ -1,14 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class AnimalDestination : MonoBehaviour
 {
-     void OnCollisionEnter(Collision collision)
+    public GameObject AnimalGroups;
+    public GameObject LaunchButton;
+
+    public void AnimalsHidFun()
     {
-        if (collision.gameObject.tag=="Rocket")
-        {
-            Destroy(gameObject);
-        }
+        StartCoroutine(animalsHide());
     }
+
+    IEnumerator animalsHide()
+    {
+
+        yield return new WaitForSeconds(10);
+        AnimalGroups.SetActive(false);
+        LaunchButton.SetActive(true);
+
+    }
+
+    public void loadScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    /// <summary>
+    /// /
+    /// </summary>
+    /// 
+   
+
+
+
+
+    //public UnityEvent MyEvent;
+    //public GameObject LaunchButton;
+
+    // void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag=="Rocket")
+    //    {
+    //        gameObject.SetActive(false);
+
+    //        MyEvent.Invoke();
+
+    //    }
+    //}
 }
