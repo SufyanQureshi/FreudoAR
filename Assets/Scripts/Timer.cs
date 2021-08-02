@@ -8,14 +8,18 @@ public class Timer : MonoBehaviour
 {
     public GameObject smoke;
     public GameObject Birds;
-    public GameObject LaunchButton;
+    public GameObject GoButton;
     public GameObject LaunchBack;
     public GameObject AnimalGroups;
     public GameObject TryAgainButton;
+    public GameObject cat;
+   
 
     public Text countDown;
 
     public UnityEvent showAnim;
+    public UnityEvent showCat;
+  
 
     public void WaitForSmoke()
     {
@@ -30,22 +34,7 @@ public class Timer : MonoBehaviour
         StartCoroutine(CountDown());
     }
 
-    /// <summary>
-    /// /
-    /// </summary>
-    public void LaunchBackFun()
-    {
-        StartCoroutine(WaitLaunchBack());
-       
-    }
 
-
-    IEnumerator WaitLaunchBack()
-    {
-        yield return new WaitForSeconds(12);
-        LaunchBack.SetActive(true);
-        
-    }
     /// <summary>
     /// 
     /// </summary>
@@ -58,9 +47,7 @@ public class Timer : MonoBehaviour
 
     IEnumerator ShowAnimals()
     {
-        yield return new WaitForSeconds(14);
-        
-        Birds.SetActive(true);
+        yield return new WaitForSeconds(16);
         
         AnimalGroups.SetActive(true);
         showAnim.Invoke();
@@ -84,8 +71,8 @@ public class Timer : MonoBehaviour
 
         yield return new WaitForSeconds(5);
         smoke.SetActive(false);
-        Birds.SetActive(false);
-        LaunchButton.SetActive(false);
+        
+        GoButton.SetActive(false);
 
     }
 
@@ -102,9 +89,50 @@ public class Timer : MonoBehaviour
         countDown.text = "";
 
         WaitForSmoke();
-        LaunchBackFun();
+       
     }
-    
+
+    // Wait for Go button
+    public void EnableGoButton()
+    {
+        StartCoroutine(WaitEnableGoButton());
+    }
+    IEnumerator WaitEnableGoButton()
+    {
+        yield return new WaitForSeconds(8.0f);
+        AnimalGroups.SetActive(false);
+        GoButton.SetActive(true);
+    }
+
+    // Go  button Cat Move on moon
+    public void EnableCat()
+    {
+        StartCoroutine(WaitEnablecat());
+    }
+    IEnumerator WaitEnablecat()
+    {
+        yield return new WaitForSeconds(15.0f);
+        AnimalGroups.SetActive(true);
+        cat.SetActive(true);
+        showCat.Invoke();
+    }
+
+    /// Disable Cat
+    ///
+    public void DisableCat()
+    {
+        StartCoroutine(WaitDisablecat());
+    }
+    IEnumerator WaitDisablecat()
+    {
+        yield return new WaitForSeconds(24.0f);
+        AnimalGroups.SetActive(false);
+        LaunchBack.SetActive(true);
+
+
+    }
+
+
 
 
 }
