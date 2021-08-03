@@ -13,9 +13,10 @@ public class Timer : MonoBehaviour
     public GameObject AnimalGroups;
     public GameObject TryAgainButton;
     public GameObject cat;
+    public GameObject snack;
+    public GameObject spider;
+    public GameObject[] coundown;
    
-
-    public Text countDown;
 
     public UnityEvent showAnim;
     public UnityEvent showCat;
@@ -50,6 +51,7 @@ public class Timer : MonoBehaviour
         yield return new WaitForSeconds(16);
         
         AnimalGroups.SetActive(true);
+       
         showAnim.Invoke();
 
         yield return new WaitForSeconds(8);
@@ -78,15 +80,22 @@ public class Timer : MonoBehaviour
 
     IEnumerator CountDown()
     {
-        countDown.text = "3";
+        coundown[3].SetActive(true);    
         yield return new WaitForSeconds(1.0f);
-        countDown.text = "2";
+        coundown[3].SetActive(false);
+
+        coundown[2].SetActive(true);
         yield return new WaitForSeconds(1.0f);
-        countDown.text = "1";
+        coundown[2].SetActive(false);
+
+        coundown[1].SetActive(true);
         yield return new WaitForSeconds(1.0f);
-        countDown.text = "Go!";
+        coundown[1].SetActive(false);
+
+        coundown[0].SetActive(true);     
         yield return new WaitForSeconds(1.0f);
-        countDown.text = "";
+        coundown[0].SetActive(false);
+
 
         WaitForSmoke();
        
@@ -101,6 +110,7 @@ public class Timer : MonoBehaviour
     {
         yield return new WaitForSeconds(8.0f);
         AnimalGroups.SetActive(false);
+
         GoButton.SetActive(true);
     }
 
@@ -113,6 +123,8 @@ public class Timer : MonoBehaviour
     {
         yield return new WaitForSeconds(15.0f);
         AnimalGroups.SetActive(true);
+        snack.SetActive(false);
+        spider.SetActive(false);
         cat.SetActive(true);
         showCat.Invoke();
     }
@@ -127,6 +139,8 @@ public class Timer : MonoBehaviour
     {
         yield return new WaitForSeconds(24.0f);
         AnimalGroups.SetActive(false);
+        snack.SetActive(true);
+        spider.SetActive(true);
         LaunchBack.SetActive(true);
 
 
