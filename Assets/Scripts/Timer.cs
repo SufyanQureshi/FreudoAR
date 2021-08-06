@@ -14,7 +14,8 @@ public class Timer : MonoBehaviour
     public GameObject TryAgainButton;
     public GameObject cat;
     public GameObject snack;
-    public GameObject spider;
+    public GameObject LadyBird;
+    public GameObject Bee;
     public GameObject[] coundown;
    
 
@@ -124,7 +125,8 @@ public class Timer : MonoBehaviour
         yield return new WaitForSeconds(15.0f);
         AnimalGroups.SetActive(true);
         snack.SetActive(false);
-        spider.SetActive(false);
+        LadyBird.SetActive(false);
+        Bee.SetActive(false);
         cat.SetActive(true);
         showCat.Invoke();
     }
@@ -140,7 +142,8 @@ public class Timer : MonoBehaviour
         yield return new WaitForSeconds(24.0f);
         AnimalGroups.SetActive(false);
         snack.SetActive(true);
-        spider.SetActive(true);
+        LadyBird.SetActive(true);
+        Bee.SetActive(true);
         LaunchBack.SetActive(true);
 
 
