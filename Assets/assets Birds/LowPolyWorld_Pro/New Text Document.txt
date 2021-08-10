@@ -1,0 +1,6 @@
+Low Poly World - Pro (Standard RP) - Upgradable to URP (No HDRP available at this moment)
+
+The water shader uses a specific render pipeline so if it shows up pink and you are using URP, be usre to upgrade to the URP version or get in touch,
+I respond fairly quickly: me@robertramsay.co.uk
+
+Added on 13thNov, 2020: Stylised pots and Plants package.
