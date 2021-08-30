@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 568a40d65870040ac893aea7d9a38bbe
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Donut Derby
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: baaa69cb9e0274c9987eae7436e23d0a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
