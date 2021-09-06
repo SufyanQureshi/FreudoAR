@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Rocket
+  - Mercury
+  - Venus
+  - Earth
+  - Mars
+  - Jupiter
+  - Saturn
+  - Uranus
+  - Neptune
   layers:
   - Default
   - TransparentFX
