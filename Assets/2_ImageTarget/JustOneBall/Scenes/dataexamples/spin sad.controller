@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-4053393110381663852
+--- !u!1102 &-7886630598028627835
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
@@ -35,7 +35,7 @@ AnimatorController:
   m_Name: spin sad
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: happy_wave
+  - m_Name: mercury
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -67,11 +67,11 @@ AnimatorStateMachine:
     m_State: {fileID: 7875086594191063001}
     m_Position: {x: 470, y: 140, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -4053393110381663852}
-    m_Position: {x: 450, y: 40, z: 0}
+    m_State: {fileID: -7886630598028627835}
+    m_Position: {x: 470, y: 50, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
-  - {fileID: 6095777310378386351}
+  - {fileID: 5838038600834104315}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
@@ -80,16 +80,19 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 7875086594191063001}
---- !u!1101 &6095777310378386351
+--- !u!1101 &5838038600834104315
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: mercury
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -4053393110381663852}
+  m_DstState: {fileID: -7886630598028627835}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0

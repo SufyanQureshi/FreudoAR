@@ -25,39 +25,34 @@ public class clickDetect : MonoBehaviour
             if (Physics.Raycast(ray, out Hit))
             {
                 btnName = Hit.transform.name;
+
                 switch (btnName)
                 {
                     case "mercury":
-                        anim[0].SetTrigger("happy_wave");
+                        anim[0].SetTrigger("mercury");
                         break;
-                    //case "venus":
-                    //    myAudioSource.clip = aClips[1];
-                    //    myAudioSource.Play();
-                    //    break;
-                    //case "earth":
-                    //    myAudioSource.clip = aClips[2];
-                    //    myAudioSource.Play();
-                    //    break;
-                    //case "mars":
-                    //    myAudioSource.clip = aClips[3];
-                    //    myAudioSource.Play();
-                    //    break;
-                    //case "jupiter":
-                    //    myAudioSource.clip = aClips[4];
-                    //    myAudioSource.Play();
-                    //    break;
-                    //case "saturn":
-                    //    myAudioSource.clip = aClips[5];
-                    //    myAudioSource.Play();
-                    //    break;
-                    //case "uranus":
-                    //    myAudioSource.clip = aClips[5];
-                    //    myAudioSource.Play();
-                    //    break;
-                    //case "neptune":
-                    //    myAudioSource.clip = aClips[5];
-                    //    myAudioSource.Play();
-                    //    break;
+                    case "venus":
+                        anim[1].SetTrigger("venus");
+                        break;
+                    case "earth":
+                        anim[2].SetTrigger("earth");
+                        break;
+                    case "mars":
+                        anim[3].SetTrigger("mars");
+                        break;
+                    case "jupiter":
+                        anim[4].SetTrigger("jupiter");
+                        break;
+                    case "saturn":
+                        anim[5].SetTrigger("saturn");
+                        break;
+                    case "uranus":
+                        anim[6].SetTrigger("uranus");
+                        break;
+                    case "neptune":
+                        anim[7].SetTrigger("neptune");
+                        break;
+
                     default:
                         break;
 
