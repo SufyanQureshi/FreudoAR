@@ -6,10 +6,17 @@ public class rotate : MonoBehaviour
 {
     public  float rotationSpeed;
     public Animator[] anim;
+    //protected GameObject mercury;
+
+  
 
     // Start is called before the first frame update
     void Start()
     {
+
+
+        //mercury = transform.GetChild(0).gameObject;
+
         for (int i = 0; i < 1000; i++)
         {
             WalkAnim();
@@ -19,7 +26,9 @@ public class rotate : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {    
+    {
+       // mercury.transform.Translate(0, 0, 1 * (Time.deltaTime));
+
         transform.Rotate(new Vector3(0, rotationSpeed, 0)*Time.deltaTime);
 
     }
