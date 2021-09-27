@@ -31,7 +31,7 @@ public class clickDetect : MonoBehaviour
                     case "mercury":
                         anim[0].SetTrigger("mercury");
                         break;
-                    case "venus":
+                    case "venus": 
                         anim[1].SetTrigger("venus");
                         break;
                     case "earth":
