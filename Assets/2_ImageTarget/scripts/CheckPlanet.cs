@@ -74,19 +74,20 @@ public class CheckPlanet : MonoBehaviour
         }
     }
 
-    //public void Attack()
-    //{
-    //    Time.timeScale = 1;
-    //    int randomNumber = Random.Range(1, 8);
-    //    anim.SetTrigger("anim" + randomNumber);
-    //}
+    public void Attack()
+    {
+        Time.timeScale = 1;
+        int randomNumber = Random.Range(1, 8);
+        anim.SetTrigger("anim" + randomNumber);
+    }
 
     public void MoveTowardPlantets()
     {
-        Time.timeScale = 1;
+        
 
         int randomNumber = Random.Range(1, 8);
-        // planetsName[randomNumber]     
-        transform.position = Vector3.MoveTowards(transform.position, planetsName[randomNumber].transform.position, 10f * Time.deltaTime);
+        //planetsName[randomNumber]     
+        transform.position = Vector3.MoveTowards(transform.position, planetsName[randomNumber].transform.position, 1f * Time.deltaTime);
+        transform.up = planetsName[randomNumber].transform.position = transform.position;
     }
 }

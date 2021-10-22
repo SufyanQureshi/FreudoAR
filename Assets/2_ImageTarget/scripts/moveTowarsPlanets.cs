@@ -6,7 +6,7 @@ public class moveTowarsPlanets : MonoBehaviour
 {
     public GameObject[] planetsName;
     int randomNumber;
-    Vector3 CurentPosission;
+   Vector3  CurentPosission;
     private bool check =false;
 
     public void Start()
@@ -15,18 +15,23 @@ public class moveTowarsPlanets : MonoBehaviour
     }
     public void MoveTowardPlantets()
     {
-        Time.timeScale = 1;
+      
         check = true;
-    }
-    public void Update()
-    {
         if (check == true)
         {
             CurentPosission = planetsName[randomNumber].transform.position;
-            transform.position = Vector3.MoveTowards(transform.position, CurentPosission, 1f * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(CurentPosission, CurentPosission, 0.1f * Time.deltaTime);
             transform.up = planetsName[randomNumber].transform.position = transform.position;
+
         }
-        
+
+
+    }
+    public void Update()
+    {
+       
+
+
     }
 }
    
