@@ -8,10 +8,10 @@ public class IncreaseSpeed : MonoBehaviour
 
     public Transform[] planets;
     public Animator[] anim;
-
+    
     public float rotaionSpeed;
     public bool check = false;
-         
+  
 
 
     public static IncreaseSpeed instance;
@@ -31,11 +31,8 @@ public class IncreaseSpeed : MonoBehaviour
             for (int i = 0; i < planets.Length; i++)
             {
                 planets[i].RotateAround(sun.position, sun.up, rotaionSpeed * Time.deltaTime);
-
             }
         }
-        
-
     }
 
     public void WalkAnim()
@@ -50,6 +47,7 @@ public class IncreaseSpeed : MonoBehaviour
         anim[7].SetTrigger("neptune_walk");
     }
 
+
     public void StartPlanetstoWalk()
     {
         check = true;
@@ -57,8 +55,18 @@ public class IncreaseSpeed : MonoBehaviour
         {
             WalkAnim();
         }
-
-       
-       
     }
+
+    public void StopPlanets()
+    {
+        check = false;
+      
+        for (int i = 0; i <=7; i++)
+        {
+            anim[i].GetComponent<Animator>().enabled = false;
+        }
+    }
+
+
+
 }

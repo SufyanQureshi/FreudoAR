@@ -1,93 +1,145 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CheckPlanet : MonoBehaviour
 {
-    private int check;
-    public Animator anim;
+    private int check=0;
+    //public Animator anim;
     public GameObject rightPlanet;
     public GameObject[] planetsName;
+    public GameObject planet;
+    public GameObject[] planetsButtons;
+    private string namePlanet;
+    private string ClicketButtonname;
+    
+
+
+   
+
 
     public void OnTriggerEnter(Collider other)
     {
+        
         if (other.tag== "Mercury")
         {
+            PlayerPrefs.SetInt("check",0);
             check = 0;
+           // Debug.Log("Check " + check);
+            namePlanet = "mercury";
             planetsName[0].SetActive(true);
             Debug.Log("Mercury");
+            straightPos();
+
         }
         else if (other.tag == "Venus")
         {
+            PlayerPrefs.SetInt("check", 1);
             check = 1;
+           // Debug.Log("Check " +check);
+            namePlanet = "venus";
             planetsName[1].SetActive(true);
             Debug.Log("Venus");
+            straightPos();
+
         }
         else if (other.tag == "Earth")
         {
+            PlayerPrefs.SetInt("check", 2);
             check = 2;
+           // Debug.Log("Check " + check);
+            namePlanet = "earth";
             planetsName[2].SetActive(true);
             Debug.Log("Earth");
+            straightPos();
+
         }
         else if (other.tag == "Mars")
         {
+            PlayerPrefs.SetInt("check", 3);
             check = 3;
+            //Debug.Log("Check " + check);
+            namePlanet = "mars";
             planetsName[3].SetActive(true);
             Debug.Log("Mars");
+            straightPos();
+
         }
         else if (other.tag == "Jupiter")
         {
+            PlayerPrefs.SetInt("check", 4);
             check = 4;
+            //Debug.Log("Check " + check);
+            namePlanet = "jupiture";
             planetsName[4].SetActive(true);
             Debug.Log("Jupiter");
+            straightPos();
+
         }
         else if (other.tag == "Saturn")
         {
+            PlayerPrefs.SetInt("check", 5);
             check = 5;
+            //Debug.Log("Check " + check);
+            namePlanet = "saturn";
             planetsName[5].SetActive(true);
             Debug.Log("Saturn");
+            straightPos();
+
         }
         else if (other.tag == "Uranus")
         {
+            PlayerPrefs.SetInt("check", 6);
             check = 6;
+            //Debug.Log("Check " + check);
+            namePlanet = "uranus";
             planetsName[6].SetActive(true);
             Debug.Log("Uranus");
+            straightPos();
+
+
         }
         else if (other.tag == "Neptune")
         {
+            PlayerPrefs.SetInt("check", 7);
             check = 7;
+           // Debug.Log("Check " + check);
+            namePlanet = "naptune";
             planetsName[7].SetActive(true);
             Debug.Log("Neptune");
+            straightPos();
+
+
         }
     }
 
     public void findPlanet(int presedIndex)
     {
-        if (presedIndex==check)
+        ClicketButtonname = EventSystem.current.currentSelectedGameObject.name;
+        
+        Debug.Log(" Pressed button"+ ClicketButtonname);
+        Debug.Log("Check " + PlayerPrefs.GetInt("check"));
+        if (ClicketButtonname == namePlanet || presedIndex== PlayerPrefs.GetInt("check"))
         {
-            rightPlanet.SetActive(true);
             Debug.Log("Right Button Pressed");
         }
-        else
-        {
-            Debug.Log("Wrong Button pressed");
-        }
+       
     }
 
-    public void Attack()
+  public IEnumerator wiatSec()
     {
-        Time.timeScale = 1;
-        int randomNumber = Random.Range(1, 8);
-        anim.SetTrigger("anim" + randomNumber);
+        yield return  new WaitForSeconds(4);
     }
 
-    public void MoveTowardPlantets()
+    public void straightPos()
     {
-        
+        StartCoroutine(wiatSec());
+        moveTowarsPlanets.instance.check = false;
+        planet.transform.eulerAngles = new Vector3(0, -90, 90);
+        planet.transform.position = moveTowarsPlanets.instance.planetsName[moveTowarsPlanets.instance.randomNumber].transform.position;
+ 
 
-        int randomNumber = Random.Range(1, 8);
-        //planetsName[randomNumber]     
-        transform.position = Vector3.MoveTowards(transform.position, planetsName[randomNumber].transform.position, 1f * Time.deltaTime);
-        transform.up = planetsName[randomNumber].transform.position = transform.position;
     }
+
 }
