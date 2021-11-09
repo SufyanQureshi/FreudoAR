@@ -12,7 +12,7 @@ public class HideText : MonoBehaviour
 
     public void TextHide()
     {
-        for (int i = 0; i <= 7; i++)
+        for (int i = 0; i <= 8; i++)
         {
             plabetstext[i].SetActive(false);
         }

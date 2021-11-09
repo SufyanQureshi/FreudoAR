@@ -19,7 +19,7 @@ public class moveTowarsPlanets : MonoBehaviour
     private float timer = 0f;
     private float learpRatio;
 
-    public GameObject ButtonGroup;
+    
     public static moveTowarsPlanets instance;
 
     private void Awake()
@@ -56,6 +56,7 @@ public class moveTowarsPlanets : MonoBehaviour
             if (landingCheck == false)
             {
                 transform.up = planetsName[randomNumber].transform.position - transform.position;
+                Debug.Log((transform.position));
             }
 
         }
@@ -73,7 +74,7 @@ public class moveTowarsPlanets : MonoBehaviour
         //{
         //    planetsName[i].GetComponent<CapsuleCollider>().enabled=true;
         //}
-        ButtonGroup.SetActive(true);
+       
     }
 
     public void restart()

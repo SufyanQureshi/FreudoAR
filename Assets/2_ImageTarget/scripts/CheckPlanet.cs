@@ -7,16 +7,21 @@ public class CheckPlanet : MonoBehaviour
 {
     private int check=0;
     //public Animator anim;
-    public GameObject rightPlanet;
     public GameObject[] planetsName;
     public GameObject planet;
     public GameObject[] planetsButtons;
     private string namePlanet;
     private string ClicketButtonname;
-    
+    public GameObject PlanetsNamesPanel;
+    public GameObject ZuWechem_3Text;
+    public GameObject RightButtonText;
+    public GameObject TryAgainText;
+    public GameObject TryAgianBotton;
 
 
-   
+
+
+
 
 
     public void OnTriggerEnter(Collider other)
@@ -123,23 +128,55 @@ public class CheckPlanet : MonoBehaviour
         if (ClicketButtonname == namePlanet || presedIndex== PlayerPrefs.GetInt("check"))
         {
             Debug.Log("Right Button Pressed");
+            PlanetsNamesPanel.SetActive(false);
+            RightButtonText.SetActive(true);
+            StartCoroutine(wiatSec(3));
+        }
+        else
+        {
+            TryAgainText.SetActive(true);
+            StartCoroutine(WiatForWrongText());
+           
         }
        
     }
 
-  public IEnumerator wiatSec()
+    IEnumerator WiatForWrongText()
     {
-        yield return  new WaitForSeconds(4);
+        
+        yield return new WaitForSeconds(3);
+        TryAgainText.SetActive(false);
+       
+
+    }
+
+    IEnumerator wiatSec(int sec)
+    {
+        yield return  new WaitForSeconds(sec);
+        RightButtonText.SetActive(false);
+        TryAgianBotton.SetActive(true);
     }
 
     public void straightPos()
     {
-        StartCoroutine(wiatSec());
+        //StartCoroutine(wiatSec(5));
         moveTowarsPlanets.instance.check = false;
         planet.transform.eulerAngles = new Vector3(0, -90, 90);
         planet.transform.position = moveTowarsPlanets.instance.planetsName[moveTowarsPlanets.instance.randomNumber].transform.position;
- 
+        
+    }
 
+     IEnumerator waitForButtonName()
+    {
+        yield return new WaitForSeconds(5);
+        ZuWechem_3Text.SetActive(false);
+        PlanetsNamesPanel.SetActive(true);
+    }
+    public void ShowPlanetsNameButtons()
+
+    {
+        StartCoroutine(waitForButtonName());
+        
     }
 
 }
