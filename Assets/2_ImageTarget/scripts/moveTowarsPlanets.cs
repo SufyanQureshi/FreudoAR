@@ -18,6 +18,7 @@ public class moveTowarsPlanets : MonoBehaviour
     public float learpTime = 12f;
     private float timer = 0f;
     private float learpRatio;
+    public Animator RocketsizeReduce;
 
     
     public static moveTowarsPlanets instance;
@@ -51,6 +52,7 @@ public class moveTowarsPlanets : MonoBehaviour
             Vector3 positionOffset = learpCurve.Evaluate(learpRatio) * lerpOffSet;
            
             transform.position = Vector3.Lerp(transform.position, planetsName[randomNumber].transform.position, learpRatio) + positionOffset;
+
             //transform.position.Normalize();
 
             if (landingCheck == false)
@@ -58,6 +60,10 @@ public class moveTowarsPlanets : MonoBehaviour
                 transform.up = planetsName[randomNumber].transform.position - transform.position;
                 Debug.Log((transform.position));
             }
+            
+
+
+
 
         }
        
@@ -69,12 +75,13 @@ public class moveTowarsPlanets : MonoBehaviour
         randomNumber = Random.Range(1, 8);
         Debug.Log(randomNumber);
         check = true;
+        transform.rotation = Quaternion.Euler(0, 90, 0);
 
         //for (int i = 0; i <= 7; i++)
         //{
         //    planetsName[i].GetComponent<CapsuleCollider>().enabled=true;
         //}
-       
+
     }
 
     public void restart()

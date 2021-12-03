@@ -5,11 +5,11 @@ using UnityEngine.EventSystems;
 
 public class CheckPlanet : MonoBehaviour
 {
-    private int check=0;
+    private int check;
     //public Animator anim;
     public GameObject[] planetsName;
     public GameObject planet;
-    public GameObject[] planetsButtons;
+   
     private string namePlanet;
     private string ClicketButtonname;
     public GameObject PlanetsNamesPanel;
@@ -31,9 +31,9 @@ public class CheckPlanet : MonoBehaviour
         {
             PlayerPrefs.SetInt("check",0);
             check = 0;
-           // Debug.Log("Check " + check);
+            Debug.Log("Check " + check);
             namePlanet = "mercury";
-            planetsName[0].SetActive(true);
+           // planetsName[0].SetActive(true);
             Debug.Log("Mercury");
             straightPos();
 
@@ -42,9 +42,9 @@ public class CheckPlanet : MonoBehaviour
         {
             PlayerPrefs.SetInt("check", 1);
             check = 1;
-           // Debug.Log("Check " +check);
+            Debug.Log("Check " +check);
             namePlanet = "venus";
-            planetsName[1].SetActive(true);
+            //planetsName[1].SetActive(true);
             Debug.Log("Venus");
             straightPos();
 
@@ -53,9 +53,9 @@ public class CheckPlanet : MonoBehaviour
         {
             PlayerPrefs.SetInt("check", 2);
             check = 2;
-           // Debug.Log("Check " + check);
+            Debug.Log("Check " + check);
             namePlanet = "earth";
-            planetsName[2].SetActive(true);
+            //planetsName[2].SetActive(true);
             Debug.Log("Earth");
             straightPos();
 
@@ -64,9 +64,9 @@ public class CheckPlanet : MonoBehaviour
         {
             PlayerPrefs.SetInt("check", 3);
             check = 3;
-            //Debug.Log("Check " + check);
+            Debug.Log("Check " + check);
             namePlanet = "mars";
-            planetsName[3].SetActive(true);
+           // planetsName[3].SetActive(true);
             Debug.Log("Mars");
             straightPos();
 
@@ -75,9 +75,9 @@ public class CheckPlanet : MonoBehaviour
         {
             PlayerPrefs.SetInt("check", 4);
             check = 4;
-            //Debug.Log("Check " + check);
+            Debug.Log("Check " + check);
             namePlanet = "jupiture";
-            planetsName[4].SetActive(true);
+           // planetsName[4].SetActive(true);
             Debug.Log("Jupiter");
             straightPos();
 
@@ -86,9 +86,9 @@ public class CheckPlanet : MonoBehaviour
         {
             PlayerPrefs.SetInt("check", 5);
             check = 5;
-            //Debug.Log("Check " + check);
+            Debug.Log("Check " + check);
             namePlanet = "saturn";
-            planetsName[5].SetActive(true);
+           // planetsName[5].SetActive(true);
             Debug.Log("Saturn");
             straightPos();
 
@@ -97,9 +97,9 @@ public class CheckPlanet : MonoBehaviour
         {
             PlayerPrefs.SetInt("check", 6);
             check = 6;
-            //Debug.Log("Check " + check);
+            Debug.Log("Check " + check);
             namePlanet = "uranus";
-            planetsName[6].SetActive(true);
+           // planetsName[6].SetActive(true);
             Debug.Log("Uranus");
             straightPos();
 
@@ -109,9 +109,9 @@ public class CheckPlanet : MonoBehaviour
         {
             PlayerPrefs.SetInt("check", 7);
             check = 7;
-           // Debug.Log("Check " + check);
+            Debug.Log("Check " + check);
             namePlanet = "naptune";
-            planetsName[7].SetActive(true);
+          //  planetsName[7].SetActive(true);
             Debug.Log("Neptune");
             straightPos();
 
@@ -125,7 +125,7 @@ public class CheckPlanet : MonoBehaviour
         
         Debug.Log(" Pressed button"+ ClicketButtonname);
         Debug.Log("Check " + PlayerPrefs.GetInt("check"));
-        if (ClicketButtonname == namePlanet || presedIndex== PlayerPrefs.GetInt("check"))
+        if (ClicketButtonname == namePlanet || presedIndex== PlayerPrefs.GetInt("check") || presedIndex==check)
         {
             Debug.Log("Right Button Pressed");
             PlanetsNamesPanel.SetActive(false);
@@ -162,8 +162,10 @@ public class CheckPlanet : MonoBehaviour
         //StartCoroutine(wiatSec(5));
         moveTowarsPlanets.instance.check = false;
         planet.transform.eulerAngles = new Vector3(0, -90, 90);
+       
         planet.transform.position = moveTowarsPlanets.instance.planetsName[moveTowarsPlanets.instance.randomNumber].transform.position;
-        
+        planet.transform.GetChild(0).position = new Vector3(planet.transform.position.x, planet.transform.position.y, planet.transform.position.z-0.3f);
+
     }
 
      IEnumerator waitForButtonName()

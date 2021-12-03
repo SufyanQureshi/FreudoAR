@@ -20,11 +20,23 @@ public class HideText : MonoBehaviour
 
     public void RandomPlanetPoss()
     {
+        //PlayerPrefs.SetInt("randomNumber" , Random.Range(1, 8));
         randomNumber = Random.Range(1, 8);
-        Debug.Log(randomNumber);
+        Debug.Log(PlayerPrefs.GetInt("randomNumber"));
         rocket.SetActive(true);
+
+    
+
         //Instantiate(rocket, planets[randomNumber].transform.position, planets[randomNumber].transform.rotation);
-        rocket.transform.position = Vector3.Lerp(rocket.transform.position, planets[randomNumber].transform.position,10);
+        rocket.transform.position = Vector3.Lerp(rocket.transform.position, planets[randomNumber].transform.position,1);
+
+
+        //Vector3 pos = rocket.transform.position;
+
+        //pos.y = planets[randomNumber].transform.position.y+1;
+        //rocket.transform.position = pos;
+
+        Debug.Log(randomNumber + " Rocket SPawn");
 
     }
 
