@@ -89,7 +89,12 @@ public class moveTowarsPlanets : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-  
+    public void SceneLoad(int Sceneindex)
+    {
+        SceneManager.LoadScene(Sceneindex);
+    }
+
+
 
 }
   

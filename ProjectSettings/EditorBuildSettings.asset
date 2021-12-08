@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ArProject.unity
     guid: 3acb832199c4446c39dfc7abe68252c2
+  - enabled: 1
+    path: Assets/Scenes/PlanetsMove2ndImage.unity
+    guid: f48b0c1f2b3374e708575d75abdf285b
+  - enabled: 1
+    path: Assets/Scenes/Quiz.unity
+    guid: 987bc0b826816478aa6014d293808833
   m_configObjects: {}

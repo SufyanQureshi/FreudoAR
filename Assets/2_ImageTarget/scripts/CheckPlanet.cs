@@ -30,7 +30,7 @@ public class CheckPlanet : MonoBehaviour
         if (other.tag== "Mercury")
         {
             PlayerPrefs.SetInt("check",0);
-            check = 0;
+            //check = 0;
             Debug.Log("Check " + check);
             namePlanet = "mercury";
            // planetsName[0].SetActive(true);
@@ -41,7 +41,7 @@ public class CheckPlanet : MonoBehaviour
         else if (other.tag == "Venus")
         {
             PlayerPrefs.SetInt("check", 1);
-            check = 1;
+           // check = 1;
             Debug.Log("Check " +check);
             namePlanet = "venus";
             //planetsName[1].SetActive(true);
@@ -52,7 +52,7 @@ public class CheckPlanet : MonoBehaviour
         else if (other.tag == "Earth")
         {
             PlayerPrefs.SetInt("check", 2);
-            check = 2;
+            //check = 2;
             Debug.Log("Check " + check);
             namePlanet = "earth";
             //planetsName[2].SetActive(true);
@@ -63,7 +63,7 @@ public class CheckPlanet : MonoBehaviour
         else if (other.tag == "Mars")
         {
             PlayerPrefs.SetInt("check", 3);
-            check = 3;
+            //check = 3;
             Debug.Log("Check " + check);
             namePlanet = "mars";
            // planetsName[3].SetActive(true);
@@ -74,7 +74,7 @@ public class CheckPlanet : MonoBehaviour
         else if (other.tag == "Jupiter")
         {
             PlayerPrefs.SetInt("check", 4);
-            check = 4;
+           // check = 4;
             Debug.Log("Check " + check);
             namePlanet = "jupiture";
            // planetsName[4].SetActive(true);
@@ -85,7 +85,7 @@ public class CheckPlanet : MonoBehaviour
         else if (other.tag == "Saturn")
         {
             PlayerPrefs.SetInt("check", 5);
-            check = 5;
+           // check = 5;
             Debug.Log("Check " + check);
             namePlanet = "saturn";
            // planetsName[5].SetActive(true);
@@ -96,7 +96,7 @@ public class CheckPlanet : MonoBehaviour
         else if (other.tag == "Uranus")
         {
             PlayerPrefs.SetInt("check", 6);
-            check = 6;
+           // check = 6;
             Debug.Log("Check " + check);
             namePlanet = "uranus";
            // planetsName[6].SetActive(true);
@@ -125,7 +125,7 @@ public class CheckPlanet : MonoBehaviour
         
         Debug.Log(" Pressed button"+ ClicketButtonname);
         Debug.Log("Check " + PlayerPrefs.GetInt("check"));
-        if (ClicketButtonname == namePlanet || presedIndex== PlayerPrefs.GetInt("check") || presedIndex==check)
+        if (ClicketButtonname == namePlanet || presedIndex== PlayerPrefs.GetInt("check"))
         {
             Debug.Log("Right Button Pressed");
             PlanetsNamesPanel.SetActive(false);
